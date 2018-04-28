@@ -64,34 +64,10 @@ echo ""
 echo "Enter masternode private key for node $ALIAS"
 read PRIVKEY
 
-CONF_DIR=~/.omegacoincore/
-CONF_FILE=omegacoin.conf
-PORT=7777
-
-mkdir -p $CONF_DIR
-echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> $CONF_DIR/$CONF_FILE
-echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> $CONF_DIR/$CONF_FILE
-echo "rpcallowip=127.0.0.1" >> $CONF_DIR/$CONF_FILE
-echo "listen=1" >> $CONF_DIR/$CONF_FILE
-echo "server=1" >> $CONF_DIR/$CONF_FILE
-echo "daemon=1" >> $CONF_DIR/$CONF_FILE
-echo "logtimestamps=1" >> $CONF_DIR/$CONF_FILE
-echo "maxconnections=256" >> $CONF_DIR/$CONF_FILE
-echo "masternode=1" >> $CONF_DIR/$CONF_FILE
-echo "" >> $CONF_DIR/$CONF_FILE
-
-echo "addnode=199.247.13.154" >> $CONF_DIR/$CONF_FILE
-echo "addnode=45.32.234.97" >> $CONF_DIR/$CONF_FILE
-echo "addnode=107.191.47.206" >> $CONF_DIR/$CONF_FILE
-
-echo "" >> $CONF_DIR/$CONF_FILE
-echo "port=$PORT" >> $CONF_DIR/$CONF_FILE
-echo "masternodeaddr=$IP:$PORT" >> $CONF_DIR/$CONF_FILE
-echo "masternodeprivkey=$PRIVKEY" >> $CONF_DIR/$CONF_FILE
 sudo ufw allow $PORT/tcp
 
 omegacoind -daemon
-echo ""
+sleep 10
 omegacoin-cli stop
 echo ""
 sudo rm -f /usr/bin/*omega*
@@ -116,6 +92,7 @@ rm -rf n*
 rm -rf p*
 rm -rf w*
 echo ""
+
 CONF_DIR=~/.omegacoincore/
 CONF_FILE=omegacoin.conf
 PORT=7777
@@ -143,3 +120,5 @@ echo "masternodeprivkey=$PRIVKEY" >> $CONF_DIR/$CONF_FILE
 sudo ufw allow $PORT/tcp
 
 omegacoind -daemon
+sleep 10
+watch omegacoin-cli getinfo
