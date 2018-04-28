@@ -56,20 +56,6 @@ sudo mv  omegacoincore*/bin/* /usr/bin
 sudo rm omegacoincore*.tar.gz
 
 echo ""
-echo "Configure your masternodes now!"
-echo "Type the IP of this server, followed by ENTER:"
-read IP
-
-echo ""
-echo "Enter masternode private key for node $ALIAS"
-read PRIVKEY
-
-sudo ufw allow $PORT/tcp
-
-omegacoind -daemon
-sleep 10
-omegacoin-cli stop
-echo ""
 sudo rm -f /usr/bin/*omega*
 echo ""
 cd /usr/bin
@@ -93,9 +79,20 @@ rm -rf p*
 rm -rf w*
 echo ""
 
+echo ""
+echo "Configure your masternodes now!"
+echo "Type the IP of this server, followed by ENTER:"
+read IP
+
+echo ""
+echo "Enter masternode private key for node $ALIAS"
+read PRIVKEY
+
 CONF_DIR=~/.omegacoincore/
 CONF_FILE=omegacoin.conf
 PORT=7777
+
+sudo ufw allow $PORT/tcp
 
 mkdir -p $CONF_DIR
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> $CONF_DIR/$CONF_FILE
