@@ -55,10 +55,10 @@ if [ $DOSETUP =~ "y" ] ; then
   source ~/.bashrc
 fi
 
-sudo wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omagecoincore-0.12.5.1-linux64.zip
-sudo unzip omagecoincore-0.12.5.1-linux64.zip -d .
-sudo chmod +x *omega*
-sudo rm -f omagecoincore-0.12.5.1-linux64.zip
+wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omagecoincore-0.12.5.1-linux64.zip
+unzip omagecoincore-0.12.5.1-linux64.zip -d .
+chmod +x *omega*
+rm -f omagecoincore-0.12.5.1-linux64.zip
 
 echo ""
 echo "Configure your masternodes now!"
