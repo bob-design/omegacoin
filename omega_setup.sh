@@ -1,6 +1,23 @@
+#/bin/bash
 
 cd ~
+echo "****************************************************************************"
+echo "* Ubuntu 16.04 is the recommended opearting system for this install.       *"
+echo "*                                                                          *"
+echo "* This script will install and configure your Omega Coin masternodes.      *"
+echo "****************************************************************************"
+echo && echo && echo
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+echo "!                                                 !"
+echo "! Make sure you double check before hitting enter !"
+echo "!                                                 !"
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+echo && echo && echo
 
+echo "Do you want to install all needed dependencies (no if you did it before)? y/n"
+read DOSETUP
+
+if [ $DOSETUP =~ "y" ] ; then
   sudo apt-get update
   sudo apt-get -y upgrade
   sudo apt-get -y dist-upgrade
@@ -15,7 +32,7 @@ cd ~
   sudo add-apt-repository  -y  ppa:bitcoin/bitcoin
   sudo apt-get update
   sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
-  
+
   cd /var
   sudo touch swap.img
   sudo chmod 600 swap.img
@@ -24,14 +41,15 @@ cd ~
   sudo swapon /var/swap.img
   sudo free
   sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
-  
   cd
+
   sudo apt-get install -y ufw
   sudo ufw allow ssh/tcp
   sudo ufw limit ssh/tcp
   sudo ufw logging on
   echo "y" | sudo ufw enable
   sudo ufw status
+
   mkdir -p ~/bin
   echo 'export PATH=~/bin:$PATH' > ~/.bash_aliases
   source ~/.bashrc
@@ -43,7 +61,7 @@ sudo mv  omegacoincore*/bin/* /usr/bin
 
 echo ""
 echo "Configure your masternodes now!"
-echo "Type the IP of this server, followed by [ENTER]:"
+echo "Type the IP of this server, followed by ENTER:"
 read IP
 
 echo ""
