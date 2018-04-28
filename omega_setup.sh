@@ -13,8 +13,10 @@ echo "! Make sure you double check before hitting enter !"
 echo "!                                                 !"
 echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
 echo && echo && echo
+
 echo "Do you want to install all needed dependencies (no if you did it before)? [y/n]"
 read DOSETUP
+
 if [[ $DOSETUP =~ "y" ]] ; then
   sudo apt-get update
   sudo apt-get -y upgrade
@@ -30,6 +32,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
   sudo add-apt-repository  -y  ppa:bitcoin/bitcoin
   sudo apt-get update
   sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
+
   cd /var
   sudo touch swap.img
   sudo chmod 600 swap.img
@@ -39,6 +42,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
   sudo free
   sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
   cd
+
   sudo apt-get install -y ufw
   sudo ufw allow ssh/tcp
   sudo ufw limit ssh/tcp
