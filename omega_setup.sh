@@ -92,8 +92,6 @@ CONF_DIR=~/.omegacoincore/
 CONF_FILE=omegacoin.conf
 PORT=7777
 
-sudo ufw allow $PORT/tcp
-
 mkdir -p $CONF_DIR
 echo "rpcuser=user"`shuf -i 100000-10000000 -n 1` >> $CONF_DIR/$CONF_FILE
 echo "rpcpassword=pass"`shuf -i 100000-10000000 -n 1` >> $CONF_DIR/$CONF_FILE
