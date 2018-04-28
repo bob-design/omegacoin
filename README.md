@@ -9,5 +9,5 @@ wget https://raw.githubusercontent.com/bob-design/omegacoin/master/setup.sh
 
 chmod 755 setup.sh
 
-./omega_setup.sh
+./setup.sh
 
