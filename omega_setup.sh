@@ -1,23 +1,6 @@
-#/bin/bash
 
 cd ~
-echo "****************************************************************************"
-echo "* Ubuntu 16.04 is the recommended opearting system for this install.       *"
-echo "*                                                                          *"
-echo "* This script will install and configure your Omega Coin masternodes.      *"
-echo "****************************************************************************"
-echo && echo && echo
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo "!                                                 !"
-echo "! Make sure you double check before hitting enter !"
-echo "!                                                 !"
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo && echo && echo
 
-echo "Do you want to install all needed dependencies (no if you did it before)? [y/n]"
-read DOSETUP
-
-if [[ $DOSETUP =~ "y" ]] ; then
   sudo apt-get update
   sudo apt-get -y upgrade
   sudo apt-get -y dist-upgrade
@@ -32,7 +15,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
   sudo add-apt-repository  -y  ppa:bitcoin/bitcoin
   sudo apt-get update
   sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
-
+  
   cd /var
   sudo touch swap.img
   sudo chmod 600 swap.img
@@ -41,21 +24,20 @@ if [[ $DOSETUP =~ "y" ]] ; then
   sudo swapon /var/swap.img
   sudo free
   sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
+  
   cd
-
   sudo apt-get install -y ufw
   sudo ufw allow ssh/tcp
   sudo ufw limit ssh/tcp
   sudo ufw logging on
   echo "y" | sudo ufw enable
   sudo ufw status
-
   mkdir -p ~/bin
   echo 'export PATH=~/bin:$PATH' > ~/.bash_aliases
   source ~/.bashrc
 fi
 
-wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5/omegacoincore-0.12.5-linux64.tar.gz
+wget https://github.com/omegacoinnetwork/omegacoin/archive/0.12.5.1.tar.gz
 tar -xzf omegacoincore*.tar.gz
 sudo mv  omegacoincore*/bin/* /usr/bin
 
@@ -84,9 +66,13 @@ echo "maxconnections=256" >> $CONF_DIR/$CONF_FILE
 echo "masternode=1" >> $CONF_DIR/$CONF_FILE
 echo "" >> $CONF_DIR/$CONF_FILE
 
-echo "addnode=142.208.127.121" >> $CONF_DIR/$CONF_FILE
-echo "addnode=154.208.127.121" >> $CONF_DIR/$CONF_FILE
-echo "addnode=142.208.122.127" >> $CONF_DIR/$CONF_FILE
+echo "addnode=80.211.155.141" >> $CONF_DIR/$CONF_FILE
+echo "addnode=159.65.128.239" >> $CONF_DIR/$CONF_FILE
+echo "addnode=45.76.134.148" >> $CONF_DIR/$CONF_FILE
+echo "addnode=140.82.7.244" >> $CONF_DIR/$CONF_FILE
+echo "addnode=185.58.224.83" >> $CONF_DIR/$CONF_FILE
+echo "addnode=199.247.29.167" >> $CONF_DIR/$CONF_FILE
+echo "addnode=107.191.48.250" >> $CONF_DIR/$CONF_FILE
 
 echo "" >> $CONF_DIR/$CONF_FILE
 echo "port=$PORT" >> $CONF_DIR/$CONF_FILE
