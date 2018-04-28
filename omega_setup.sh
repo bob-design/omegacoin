@@ -55,7 +55,7 @@ if [[ $DOSETUP =~ "y" ]] ; then
   source ~/.bashrc
 fi
 
-wget https://github.com/omegacoinnetwork/omegacoin/archive/0.12.5.1.tar.gz
+wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5/omegacoincore-0.12.5-linux64.tar.gz
 tar -xzf omegacoincore*.tar.gz
 sudo mv  omegacoincore*/bin/* /usr/bin
 
@@ -84,13 +84,9 @@ echo "maxconnections=256" >> $CONF_DIR/$CONF_FILE
 echo "masternode=1" >> $CONF_DIR/$CONF_FILE
 echo "" >> $CONF_DIR/$CONF_FILE
 
-echo "addnode=80.211.155.141" >> $CONF_DIR/$CONF_FILE
-echo "addnode=159.65.128.239" >> $CONF_DIR/$CONF_FILE
-echo "addnode=45.76.134.148" >> $CONF_DIR/$CONF_FILE
-echo "addnode=140.82.7.244" >> $CONF_DIR/$CONF_FILE
-echo "addnode=185.58.224.83" >> $CONF_DIR/$CONF_FILE
-echo "addnode=199.247.29.167" >> $CONF_DIR/$CONF_FILE
-echo "addnode=107.191.48.250" >> $CONF_DIR/$CONF_FILE
+echo "addnode=142.208.127.121" >> $CONF_DIR/$CONF_FILE
+echo "addnode=154.208.127.121" >> $CONF_DIR/$CONF_FILE
+echo "addnode=142.208.122.127" >> $CONF_DIR/$CONF_FILE
 
 echo "" >> $CONF_DIR/$CONF_FILE
 echo "port=$PORT" >> $CONF_DIR/$CONF_FILE
