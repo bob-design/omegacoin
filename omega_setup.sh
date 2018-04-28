@@ -55,8 +55,8 @@ if [ $DOSETUP =~ "y" ] ; then
   source ~/.bashrc
 fi
 
-wget wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omegacoincore-0.12.5.1-linux64.tar.gz
-tar -xzf omegacoincore*.tar.gz
+wget wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omagecoincore-0.12.5.1-linux64.zip
+tar -xzf omegacoincore*.zip
 sudo mv  omegacoincore*/bin/* /usr/bin
 
 echo ""
