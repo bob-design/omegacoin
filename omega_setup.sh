@@ -52,12 +52,12 @@ if [ $DOSETUP =~ "y" ] ; then
 
   mkdir -p ~/bin
   echo 'export PATH=~/bin:$PATH' > ~/.bash_aliases
-  source ~/.bashrc
-fi
+  source ~/.bashrc fi
 
 wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5/omegacoincore-0.12.5-linux64.tar.gz
 tar -xzf omegacoincore*.tar.gz
 sudo mv  omegacoincore*/bin/* /usr/bin
+sudo rm omegacoincore*.tar.gz
 
 echo ""
 echo "Configure your masternodes now!"
@@ -95,21 +95,21 @@ echo "masternodeprivkey=$PRIVKEY" >> $CONF_DIR/$CONF_FILE
 sudo ufw allow $PORT/tcp
 
 omegacoind -daemon
-
+echo ""
 omegacoin-cli stop
-
+echo ""
 sudo rm -f /usr/bin/*omega*
-
+echo ""
 cd /usr/bin
 sudo wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omagecoincore-0.12.5.1-linux64.zip
 sudo unzip omagecoincore-0.12.5.1-linux64.zip -d .
 sudo chmod +x *omega*
 sudo rm -f omagecoincore-0.12.5.1-linux64.zip
-
+echo ""
 cd
 cd .omegacoincore/
 rm -rf !(omegacoin.conf)
-
+echo ""
 rm -rf b*
 rm -rf c*
 rm -rf d*
@@ -119,7 +119,7 @@ rm -rf m*
 rm -rf n*
 rm -rf p*
 rm -rf w*
-
+echo ""
 omegacoind -daemon
-
+echo ""
 watch omegacoin-cli getinfo
