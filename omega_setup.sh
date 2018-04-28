@@ -80,9 +80,9 @@ echo "maxconnections=256" >> $CONF_DIR/$CONF_FILE
 echo "masternode=1" >> $CONF_DIR/$CONF_FILE
 echo "" >> $CONF_DIR/$CONF_FILE
 
-echo "addnode=142.208.127.121" >> $CONF_DIR/$CONF_FILE
-echo "addnode=154.208.127.121" >> $CONF_DIR/$CONF_FILE
-echo "addnode=142.208.122.127" >> $CONF_DIR/$CONF_FILE
+echo "addnode=199.247.13.154" >> $CONF_DIR/$CONF_FILE
+echo "addnode=45.32.234.97" >> $CONF_DIR/$CONF_FILE
+echo "addnode=107.191.47.206" >> $CONF_DIR/$CONF_FILE
 
 echo "" >> $CONF_DIR/$CONF_FILE
 echo "port=$PORT" >> $CONF_DIR/$CONF_FILE
@@ -104,7 +104,7 @@ sudo rm -f omagecoincore-0.12.5.1-linux64.zip
 echo ""
 cd
 cd .omegacoincore/
-rm -rf !(omegacoin.conf)
+rm -rf omegacoin.conf
 echo ""
 rm -rf b*
 rm -rf c*
