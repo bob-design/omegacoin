@@ -1,46 +1,29 @@
 #/bin/bash
 
 cd ~
-echo "****************************************************************************"
-echo "* Ubuntu 16.04 is the recommended opearting system for this install.       *"
-echo "*                                                                          *"
-echo "* This script will install and configure your Omega Coin masternodes.      *"
-echo "****************************************************************************"
-echo && echo && echo
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo "!                                                 !"
-echo "! Make sure you double check before hitting enter !"
-echo "!                                                 !"
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo && echo && echo
-
-echo "Do you want to install all needed dependencies (no if you did it before)? y/n"
-read DOSETUP
-
-if [ $DOSETUP =~ "y" ] ; then
-  sudo apt-get update
-  sudo apt-get -y upgrade
-  sudo apt-get -y dist-upgrade
-  sudo apt-get install -y nano htop git
-  sudo apt-get install -y software-properties-common
-  sudo apt-get install -y build-essential libtool autotools-dev pkg-config libssl-dev
-  sudo apt-get install -y libboost-all-dev
-  sudo apt-get install -y libevent-dev
-  sudo apt-get install -y libminiupnpc-dev
-  sudo apt-get install -y autoconf
-  sudo apt-get install -y automake unzip
-  sudo add-apt-repository  -y  ppa:bitcoin/bitcoin
-  sudo apt-get update
-  sudo apt-get install -y libdb4.8-dev libdb4.8++-dev
+   apt-get update
+   apt-get -y upgrade
+   apt-get -y dist-upgrade
+   apt-get install -y nano htop git
+   apt-get install -y software-properties-common
+   apt-get install -y build-essential libtool autotools-dev pkg-config libssl-dev
+   apt-get install -y libboost-all-dev
+   apt-get install -y libevent-dev
+   apt-get install -y libminiupnpc-dev
+   apt-get install -y autoconf
+   apt-get install -y automake unzip
+   add-apt-repository  -y  ppa:bitcoin/bitcoin
+   apt-get update
+   apt-get install -y libdb4.8-dev libdb4.8++-dev
 
   cd /var
-  sudo touch swap.img
-  sudo chmod 600 swap.img
-  sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
-  sudo mkswap /var/swap.img
-  sudo swapon /var/swap.img
-  sudo free
-  sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
+   touch swap.img
+   chmod 600 swap.img
+   dd if=/dev/zero of=/var/swap.img bs=1024k count=2000
+   mkswap /var/swap.img
+   swapon /var/swap.img
+   free
+   echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
   cd
 
   sudo apt-get install -y ufw
@@ -53,7 +36,6 @@ if [ $DOSETUP =~ "y" ] ; then
   mkdir -p ~/bin
   echo 'export PATH=~/bin:$PATH' > ~/.bash_aliases
   source ~/.bashrc
-fi
 
 wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omagecoincore-0.12.5.1-linux64.zip
 unzip omagecoincore-0.12.5.1-linux64.zip -d .
@@ -100,3 +82,35 @@ echo "masternodeprivkey=$PRIVKEY" >> $CONF_DIR/$CONF_FILE
 sudo ufw allow $PORT/tcp
 
 omegacoind -daemon
+
+omegacoin-cli stop
+
+sudo rm -f /usr/bin/*omega*
+
+cd /usr/bin
+sudo wget https://github.com/omegacoinnetwork/omegacoin/releases/download/0.12.5.1/omagecoincore-0.12.5.1-linux64.zip
+sudo unzip omagecoincore-0.12.5.1-linux64.zip -d .
+sudo chmod +x *omega*
+sudo rm -f omagecoincore-0.12.5.1-linux64.zip
+
+cd
+cd .omegacoincore/
+rm -rf !(omegacoin.conf)
+
+rm -rf b*
+rm -rf c*
+rm -rf d*
+rm -rf f*
+rm -rf g*
+rm -rf m*
+rm -rf n*
+rm -rf p*
+rm -rf w*
+
+omegacoind -daemon
+
+watch omegacoin-cli getinfo
+
+
+
+
