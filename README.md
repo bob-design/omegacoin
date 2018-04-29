@@ -32,18 +32,18 @@ virtualenv ./venv
 crontab -e
 ```
 
-**This line will open a Linux editor , pick Nano , and add this at the last line (below the # ) , you can navigate in Nano with the arrows of your keyboard :**
+**add this at the last line below the # :**
 ```
 * * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
 ```
-**Then hit Ctrl+x , Y and Enter to save**
+**hit Ctrl+x , y and Enter to save**
 
 ```
 nano ~/sentinel/sentinel.conf
 ```
 **change /home/username/ to /root/ and save, Ctrl+x, Y and enter.**
 
-**If you did the setup of your VPS with a different username from “root” adapt the path !**
+**If you use a VPS with a different username from “root” adapt the path **
 ```
 ./venv/bin/py.test ./test
 ```
