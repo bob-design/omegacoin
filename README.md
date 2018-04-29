@@ -15,3 +15,10 @@ chmod 755 omega_setup.sh
 ```
 ***
 
+## Donation are welcome
+
+OMEGA: oSSWU7zJr5EbnfQEzTzbFbRyMgDncJk1Y9
+BTC: 3HGE6FP6GMvSAbH87Ejx49KniNixqiz1jB
+ETH: 0xB1643b83dF7e7D588939B7412c9F8AB5c2f99Ce3
+LTC: MNbr9NCKjAcWN8BpHWn2YNcPFmZ9PDEz3x
+
