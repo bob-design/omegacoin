@@ -7,12 +7,6 @@ echo "*                                                                         
 echo "* This script will install and configure your Omega Coin masternodes.      *"
 echo "****************************************************************************"
 echo && echo && echo
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo "!                                                 !"
-echo "! Make sure you double check before hitting enter !"
-echo "!                                                 !"
-echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-echo && echo && echo
 
   sudo apt-get update
   sudo apt-get -y upgrade
