@@ -41,7 +41,7 @@ crontab -e
 ```
 nano ~/sentinel/sentinel.conf
 ```
-**change /home/username/ to /root/ and save, Ctrl+x, Y and enter.
+**change /home/username/ to /root/ and save, Ctrl+x, Y and enter.**
 
 **If you did the setup of your VPS with a different username from “root” adapt the path !**
 ```
