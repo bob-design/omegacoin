@@ -110,4 +110,7 @@ sudo ufw allow $PORT/tcp
 
 omegacoind -daemon
 sleep 10
-watch omegacoin-cli getinfo
+omegacoin-cli getinfo
+sleep 10
+omegacoin-cli getinfo
+
