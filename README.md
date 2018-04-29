@@ -46,7 +46,6 @@ nano ~/sentinel/sentinel.conf
 **If you did the setup of your VPS with a different username from “root” adapt the path !**
 ```
 ./venv/bin/py.test ./test
-
 ```
 ***
 
