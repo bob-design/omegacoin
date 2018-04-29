@@ -15,13 +15,50 @@ chmod 755 omega_setup.sh
 ```
 ***
 
-## Donation are welcome
+## Sentinel for omegacoin
+```
+sudo apt-get -y install python-virtualenv virtualenv
+```
+```
+git clone https://github.com/omegacoinnetwork/sentinel.git && cd sentinel
+```
+```
+virtualenv ./venv
+```
+```
+./venv/bin/pip install -r requirements.txt
+```
+```
+crontab -e
+```
 
-OMEGA: oSSWU7zJr5EbnfQEzTzbFbRyMgDncJk1Y9
+**This line will open a Linux editor , pick Nano , and add this at the last line (below the # ) , you can navigate in Nano with the arrows of your keyboard :**
+```
+* * * * * cd /root/sentinel && ./venv/bin/python bin/sentinel.py >/dev/null 2>&1
+```
+**Then hit Ctrl+x , Y and Enter to save**
 
-BTC: 3HGE6FP6GMvSAbH87Ejx49KniNixqiz1jB
+```
+nano ~/sentinel/sentinel.conf
+```
+**change /home/username/ to /root/ and save, Ctrl+x, Y and enter.
 
-ETH: 0xB1643b83dF7e7D588939B7412c9F8AB5c2f99Ce3
+**If you did the setup of your VPS with a different username from “root” adapt the path !**
+```
+./venv/bin/py.test ./test
 
-LTC: MNbr9NCKjAcWN8BpHWn2YNcPFmZ9PDEz3x
+```
+***
+
+## Donation 
+
+Any donation is highly appreciated 
+
+**OMEGA:** oSSWU7zJr5EbnfQEzTzbFbRyMgDncJk1Y9
+
+**BTC:** 3HGE6FP6GMvSAbH87Ejx49KniNixqiz1jB
+
+**ETH:** 0xB1643b83dF7e7D588939B7412c9F8AB5c2f99Ce3
+
+**LTC:** MNbr9NCKjAcWN8BpHWn2YNcPFmZ9PDEz3x
 
